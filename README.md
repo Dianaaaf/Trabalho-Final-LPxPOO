@@ -30,15 +30,23 @@ O aplicativo foi construído utilizando uma arquitetura componentizada conforme 
   - _config_ (serviços para integração com APIs)
 
 
-## 🖥️ NAVEGAÇÃO  - !ALTERAR!
-- **Autenticação**
-  - Tela de login (com mudança de status no caso de usuário com senha em cache)
-  - Cadastro (recurso não ativado, mas existente no código de acordo com necessidade da empresa)
-- **Onboarding**
-  - Telas com informações gerais do aplicativo
-- **Navegação**
-  - Menu no rodapé para acesso as páginas principais
-  - Menu drawer na lateral para acesso a páginas secundárias
+## 🖥️ NAVEGAÇÃO
+- **Tela de Login**
+  - Permite ao usuário já cadastrado realizar o login com usuário e senha;
+  - Caso seja o primeiro acesso, é possível realizar cadastro na mesma tela.
+- **Tela de Listagem**
+  - Exibe os livros disponíveis para compra juntamente com suas informações;
+  - Permite adicionar os livros desejados ao carrinho;
+  - Permite ir a tela de carrinho.
+- **Tela do Carrinho**
+  - Exibe os livros adicionados ao carrinho e sua respectiva quantidade;
+  - Exibe valor total do carrinho;
+  - Permite remover livro do carrinho, interferindo na quantidade do mesmo;
+  - Permite ir a tela do pagamento.
+- **Tela do Pagamento**
+  - Exibe o valor total da compra;
+  - Exibe formas de realizar o pagamento;
+  - Finalizar compra.
  
 
   ## ⌨️ DESENVOLVIMENTO  
