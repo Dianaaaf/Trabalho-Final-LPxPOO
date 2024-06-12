@@ -1,0 +1,3 @@
+- na classe TelaCarrinho, add função de remover
+- implementar botões de voltar nas telas
+- ajustar lista de livros em TelaListaLivros
