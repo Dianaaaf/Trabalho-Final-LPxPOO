@@ -3,7 +3,7 @@ import java.sql.*;
 public class testeBD {
     public static void main(String[] args) {
 
-        String url = "C:\\Users\\AcerNotebook\\Desktop\\ProjetoFinal\\src\\main\\java\\testeBD.java";
+        String url = "jdbc:sqlite:bd.db";
         String usuario = "root";
         String senha = "";
 
@@ -15,7 +15,7 @@ public class testeBD {
             Statement statement = conexao.createStatement();
 
             //query para executar
-            String query = "SELECT * FROM LIVROS";
+            String query = "SELECT * FROM LIVRO";
 
             //executa e pega os resultados
             ResultSet resultado = statement.executeQuery(query);

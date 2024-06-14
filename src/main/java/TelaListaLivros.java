@@ -75,7 +75,7 @@ public class TelaListaLivros extends JFrame {
                 if (value instanceof String && value.equals("Adicionar ao Carrinho")) {
                     String titulo = (String) table.getValueAt(row, 0);
                     double preco = (double) table.getValueAt(row, 1);
-                    carrinho.adicionaCarrinho(new Livro(titulo, preco, 1), 1);
+                    carrinho.adicionaCarrinho(new Livro(titulo, preco, 1).getQuantEstoque(), 1);
                 }
             }
         }
