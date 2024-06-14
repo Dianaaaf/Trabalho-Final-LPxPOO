@@ -15,9 +15,8 @@ O **Trabalho Final** desenvolvido foi baseado no tema de uma Biblioteca Online, 
 ## 🔧 TECNOLOGIAS 
 - **IDE:** Código implementado com IntelliJ IDEA.
 - **Java (vXXX):** Linguagem de programação que permite desenvolvimento Back-End e Front-End.
-- **Swing ():**
-- **JDK ():**
-- **SQL ():**
+- **JDK (21.0.2):**
+- **SQLite (3.42.0.0):**
 
 
 ## 📐 ARQUITETURA  - !ALTERAR!
