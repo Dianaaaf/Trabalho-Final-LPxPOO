@@ -14,19 +14,19 @@ O **Trabalho Final** desenvolvido foi baseado no tema de uma Biblioteca Online, 
 
 ## 🔧 TECNOLOGIAS 
 - **IDE:** Código implementado com IntelliJ IDEA.
-- **Java (vXXX):** Linguagem de programação que permite desenvolvimento Back-End e Front-End.
-- **JDK (21.0.2):**
-- **SQLite (3.42.0.0):**
+- **Java (versão 15):** Linguagem de programação que permite desenvolvimento Back-End e Front-End.
+- **JDK (21.0.2):** Compilador e bibliotecas que permitem criar sistemas de software para Java.
+- **SQLite (3.42.0.0):** Biblioteca que implementa uma base de dados SQL.
 
 
-## 📐 ARQUITETURA  - !ALTERAR!
-O aplicativo foi construído utilizando uma arquitetura componentizada conforme estrutura abaixo:
+## 📐 ARQUITETURA
+O sistema foi construído utilizando uma arquitetura conforme estrutura abaixo:
 - _src_
-  - _assets_
-    - _fonts_
-    - _Images_
-  - _components_ (arquivos que implementam as telas dos recursos gerais do aplicativo).
-  - _config_ (serviços para integração com APIs)
+  - _bd_
+    - _bd.sqlite_ (armazena as tabelas de banco de dados construídas para o projeto)
+  - _driverSQL_ (driver responsável por ligar o projeto ao banco de dados SQLite)
+  - _main_
+    - _java_ (contém toda as classes do projeto)
 
 
 ## 🖥️ NAVEGAÇÃO
