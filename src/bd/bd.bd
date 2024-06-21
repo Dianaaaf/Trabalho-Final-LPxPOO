@@ -1,9 +1,0 @@
-// tabelas e os dados do banco de dados
-
-CREATE TABLE [Livro]
-{
-    [titulo] NVARCHAR(100) NOT NULL,
-    [preco] INTEGER NOT NULL,
-    [quantidadeEstoque] INTEGER NOT NULL
-};
-
