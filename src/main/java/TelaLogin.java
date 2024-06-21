@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class TelaLogin extends JFrame {
     private JTextField login;
@@ -10,10 +11,11 @@ public class TelaLogin extends JFrame {
         gerenciaUsuario = new GerenciaUsuario();
 
         setTitle("Tela de Acesso");
-        setSize(300, 200);
+        setSize(350, 250);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel panel = new JPanel();
+        panel.setBackground(new Color(0xF4A460));
         add(panel);
         componentes(panel);
 
@@ -24,28 +26,39 @@ public class TelaLogin extends JFrame {
         panel.setLayout(null);
         this.setLocationRelativeTo(null);
 
+        JLabel tituloLB = new JLabel("Biblioteca Online! Os mais procurados estão aqui.");
+        tituloLB.setFont(new Font("Arial", Font.BOLD, 12));
+        tituloLB.setBounds(10, 10, 330, 25);
+        panel.add(tituloLB);
+
         JLabel usuarioLB = new JLabel("Usuário:");
-        usuarioLB.setBounds(10, 20, 80, 25);
+        usuarioLB.setFont(new Font("Arial", Font.BOLD, 10));
+        usuarioLB.setBounds(10, 50, 80, 25);
         panel.add(usuarioLB);
 
         login = new JTextField(20);
-        login.setBounds(100, 20, 165, 25);
+        login.setBounds(100, 50, 165, 25);
         panel.add(login);
 
         JLabel senhaLB = new JLabel("Senha:");
-        senhaLB.setBounds(10, 50, 80, 25);
+        senhaLB.setFont(new Font("Arial", Font.BOLD, 10));
+        senhaLB.setBounds(10, 80, 80, 25);
         panel.add(senhaLB);
 
         senha = new JPasswordField(20);
-        senha.setBounds(100, 50, 165, 25);
+        senha.setBounds(100, 80, 165, 25);
         panel.add(senha);
 
         botaoLogin = new JButton("Login");
-        botaoLogin.setBounds(10, 80, 80, 25);
+        botaoLogin.setBounds(10, 120, 80, 25);
+        botaoLogin.setBackground(Color.WHITE);
+        botaoLogin.setForeground(Color.BLACK);
         panel.add(botaoLogin);
 
         botaoCadastro = new JButton("Cadastrar");
-        botaoCadastro.setBounds(100, 80, 120, 25);
+        botaoCadastro.setBounds(100, 120, 120, 25);
+        botaoCadastro.setBackground(Color.WHITE);
+        botaoCadastro.setForeground(Color.BLACK);
         panel.add(botaoCadastro);
 
         botaoLogin.addActionListener(e -> {

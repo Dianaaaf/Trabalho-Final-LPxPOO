@@ -10,7 +10,7 @@ public class TelaFinalizarCompra extends JFrame {
     private JRadioButton rdbtnPix, rdbtnFiado;
     private JTextField txtPix;
     private JSpinner spinnerData;
-    private JButton btnFinalizar, btnEscolher;
+    private JButton btnFinalizar, btnConfirmar;
 
 
     public TelaFinalizarCompra(Carrinho carrinho) {
@@ -23,6 +23,7 @@ public class TelaFinalizarCompra extends JFrame {
 
         painelPrincipal = new JPanel();
         painelPrincipal.setLayout(null);
+        painelPrincipal.setBackground(new Color(0xF4A460));
 
         double valorTotal = carrinho.valorTotal();
         lblValorTotal = new JLabel("Valor Total: R$ " + String.format("%.2f", valorTotal));
@@ -32,11 +33,13 @@ public class TelaFinalizarCompra extends JFrame {
         grupoPagamento = new ButtonGroup();
         rdbtnPix = new JRadioButton("Pix (Código QR Code)");
         rdbtnPix.setBounds(10, 50, 160, 25);
+        rdbtnPix.setBackground(new Color(0xF4A460));
         painelPrincipal.add(rdbtnPix);
         grupoPagamento.add(rdbtnPix);
 
         rdbtnFiado = new JRadioButton("Fiado (Selecione uma data para pagar)");
         rdbtnFiado.setBounds(180, 50, 300, 25);
+        rdbtnFiado.setBackground(new Color(0xF4A460));
         painelPrincipal.add(rdbtnFiado);
         grupoPagamento.add(rdbtnFiado);
 
@@ -51,9 +54,11 @@ public class TelaFinalizarCompra extends JFrame {
         spinnerData.setVisible(false);
         painelPrincipal.add(spinnerData);
 
-        btnEscolher = new JButton("Confirmar");
-        btnEscolher.setBounds(150, 150, 160, 25);
-        btnEscolher.addActionListener(e -> {
+        btnConfirmar = new JButton("Confirmar");
+        btnConfirmar.setBounds(150, 150, 160, 25);
+        btnConfirmar.setBackground(Color.WHITE);
+        btnConfirmar.setForeground(Color.BLACK);
+        btnConfirmar.addActionListener(e -> {
             if (rdbtnPix.isSelected()) {
                 txtPix.setVisible(true);
                 spinnerData.setVisible(false);
@@ -62,10 +67,12 @@ public class TelaFinalizarCompra extends JFrame {
                 txtPix.setVisible(false);
             }
         });
-        painelPrincipal.add(btnEscolher);
+        painelPrincipal.add(btnConfirmar);
 
         btnFinalizar = new JButton("Finalizar e Fechar");
         btnFinalizar.setBounds(150, 190, 160, 25);
+        btnFinalizar.setBackground(Color.WHITE);
+        btnFinalizar.setForeground(Color.BLACK);
         btnFinalizar.addActionListener(e -> {
             if (rdbtnPix.isSelected() || rdbtnFiado.isSelected()) {
                 JOptionPane.showMessageDialog(this, "Compra finalizada com sucesso!");

@@ -15,7 +15,7 @@ public class testeBD {
             Statement statement = conexao.createStatement();
 
             //query para executar
-            String query = "SELECT * FROM LIVRO";
+            String query = "SELECT * FROM Livro";
 
             //executa e pega os resultados
             ResultSet resultado = statement.executeQuery(query);

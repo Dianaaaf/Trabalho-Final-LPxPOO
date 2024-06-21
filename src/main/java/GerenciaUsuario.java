@@ -1,59 +1,7 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-public class GerenciaUsuario {
-    private Connection connection;
-
-    public GerenciaUsuario() {
-        try {
-            connection = DriverManager.getConnection("jdbc:sqlite:bd.db");
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public boolean adicionarUsuario(Usuario usu) {
-        String sql = "INSERT INTO Usuario (nome, senha) VALUES (?, ?)";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, usu.getNome());
-            stmt.setString(2, usu.getSenha());
-            stmt.executeUpdate();
-            return true;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public boolean autenticar(String login, String senha) {
-        String sql = "SELECT * FROM Usuario WHERE nome = ? AND senha = ?";
-        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-            stmt.setString(1, login);
-            stmt.setString(2, senha);
-            ResultSet rs = stmt.executeQuery();
-            return rs.next();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public void fecharConexao() {
-        try {
-            if (connection != null) {
-                connection.close();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-}
+import java.sql.*;
+import java.util.ArrayList;
 
 
-/*
 public class GerenciaUsuario {
     ArrayList<Usuario> usuario = new ArrayList<>();
 
@@ -74,4 +22,73 @@ public class GerenciaUsuario {
         return false;
     }
 }
+
+
+/*
+public class GerenciaUsuario {
+    private Connection connection;
+
+    public GerenciaUsuario() {
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:bd.db");
+            Statement statement = connection.createStatement();
+        } catch(SQLException e) {
+            e.printStackTrace(System.err);
+        }
+    }
+
+    public boolean adicionarUsuario(Usuario usu) {
+        if (usuarioExiste(usu.getNome())) {
+            System.out.println("Usuário já existe.");
+            return false;
+        }
+
+        String sql = "INSERT INTO Usuario (nome, senha) VALUES (nome, senha)";
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, usu.getNome());
+            stmt.setString(2, usu.getSenha());
+            stmt.executeUpdate();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+            return false;
+        }
+    }
+
+    public boolean autenticar(String login, String senha) {
+        String sql = "SELECT * FROM Usuario WHERE nome = " + login + " AND senha = " + senha;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, login);
+            stmt.setString(2, senha);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+            return false;
+        }
+    }
+
+    public boolean usuarioExiste(String nome) {
+        String sql = "SELECT * FROM Usuario WHERE nome = " + nome;
+        try (PreparedStatement stmt = connection.prepareStatement(sql)) {
+            stmt.setString(1, nome);
+            ResultSet rs = stmt.executeQuery();
+            return rs.next();
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+            return false;
+        }
+    }
+
+    public void fecharConexao() {
+        try {
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+    }
+}
  */
+

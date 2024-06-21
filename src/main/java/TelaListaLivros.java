@@ -1,6 +1,8 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,9 +19,11 @@ public class TelaListaLivros extends JFrame {
 
     private void componentes() {
         setTitle("Vitrine de Livros");
-        setSize(800, 600);
+        setSize(800, 300);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        getContentPane().setBackground(new Color(0xF4A460));
 
         modeloTabela = new DefaultTableModel(new Object[][]{}, new Object[]{"Título", "Preço", "Adicionar ao Carrinho"}) {
             @Override
@@ -27,17 +31,47 @@ public class TelaListaLivros extends JFrame {
         };
         table = new JTable(modeloTabela);
 
+        table.setBackground(new Color(0xF4A460));
+
         table.getColumn("Adicionar ao Carrinho").setCellRenderer(new ButtonRenderer());
         table.addMouseListener(new TableButtonMouseListener(table));
 
-        adicionaLivro("Java Programming", 29.99);
-        adicionaLivro("Python for Data Science", 24.99);
-        adicionaLivro("Machine Learning with R", 39.99);
+        DefaultTableCellRenderer precoConfig = new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                if (value != null) {
+                    setText("R$ " + value);
+                }
+                setHorizontalAlignment(SwingConstants.CENTER);
+                return c;
+            }
+        };
+        table.getColumn("Preço").setCellRenderer(precoConfig);
+
+        JTableHeader header = table.getTableHeader();
+        header.setBackground(new Color(0xA0522D));
+        header.setForeground(Color.BLACK);
+
+        adicionaLivro("Deuses Humanos", 36.90);
+        adicionaLivro("Os sete maridos de Evelyn Hugo", 59.99);
+        adicionaLivro("Assassinato no Expresso Oriente", 39.99);
+        adicionaLivro("O sol da meia-noite", 69.99);
+        adicionaLivro("Vermelho, Branco e Sangue Azul", 48.97);
+        adicionaLivro("Amêndoas", 32.90);
+        adicionaLivro("Belo mundo, onde você está", 27.90);
+        adicionaLivro("Suicidas", 41.00);
+        adicionaLivro("Malibu Renasce", 45.50);
+        adicionaLivro("Corte de Chamas Prateadas", 68.90);
+        adicionaLivro("Amor Teoricamente", 52.90);
+        adicionaLivro("Herdeira do Fogo", 39.99);
 
         JScrollPane scroll = new JScrollPane(table);
         getContentPane().add(scroll, BorderLayout.CENTER);
 
         JButton btnCarrinho = new JButton("Ir ao Carrinho");
+        btnCarrinho.setBackground(Color.WHITE);
+        btnCarrinho.setForeground(Color.BLACK);
         btnCarrinho.addActionListener(e -> {
             TelaCarrinho telaCarrinho = new TelaCarrinho(carrinho);
             telaCarrinho.setVisible(true);
@@ -51,7 +85,11 @@ public class TelaListaLivros extends JFrame {
 
 
     static class ButtonRenderer extends JButton implements TableCellRenderer {
-        public ButtonRenderer() { setOpaque(true); }
+        public ButtonRenderer() {
+            setOpaque(true);
+            setBackground(Color.WHITE);
+            setForeground(Color.BLACK);
+        }
 
         @Override
         public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
@@ -75,7 +113,7 @@ public class TelaListaLivros extends JFrame {
                 if (value instanceof String && value.equals("Adicionar ao Carrinho")) {
                     String titulo = (String) table.getValueAt(row, 0);
                     double preco = (double) table.getValueAt(row, 1);
-                    carrinho.adicionaCarrinho(new Livro(titulo, preco, 1).getQuantEstoque(), 1);
+                    carrinho.adicionaCarrinho(new Livro(titulo, preco, 1), 1);
                 }
             }
         }
