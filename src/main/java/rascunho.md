@@ -1,6 +1,0 @@
-- na classe TelaCarrinho, add função de remover
-- implementar botões de voltar nas telas
-- ajustar lista de livros em TelaListaLivros
-- no cadastro, validar se já existe um usuário com mesmo nome
-- ajustar conexão com banco de dados
-- deixar as telas mais bonitas
