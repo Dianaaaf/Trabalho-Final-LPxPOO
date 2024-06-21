@@ -8,7 +8,7 @@ O **Trabalho Final** desenvolvido foi baseado no tema de uma Biblioteca Online, 
 - Cadastro de usuário;
 - Listagem de livros pré-cadastrados;
 - Adição de livro escolhido ao carrinho;
-- Acréscimo e decréscimo sobre a quantidade do livro;
+- Acréscimo sobre a quantidade do livro no carrinho;
 - Escolha da forma de pagamento e finalização do pedido;
 
 
@@ -40,7 +40,6 @@ O sistema foi construído utilizando uma arquitetura conforme estrutura abaixo:
 - **Tela do Carrinho**
   - Exibe os livros adicionados ao carrinho e sua respectiva quantidade;
   - Exibe valor total do carrinho;
-  - Permite remover livro do carrinho, interferindo na quantidade do mesmo;
   - Permite ir a tela do pagamento.
 - **Tela do Pagamento**
   - Exibe o valor total da compra;
@@ -48,5 +47,9 @@ O sistema foi construído utilizando uma arquitetura conforme estrutura abaixo:
   - Finalizar compra.
  
 
-  ## ⌨️ DESENVOLVIMENTO  
+## 🎞️ DEMONSTRAÇÃO
+<img height="400" alt="GIF" src="https://github.com/Dianaaaf/Trabalho-Final-LPxPOO/blob/main/image/FuncionamentoProjeto.gif?raw=true"/>&nbsp;
+
+
+## ⌨️ DESENVOLVIMENTO  
 Diana Alves ([Linkedin](https://www.linkedin.com/in/diana-alves-6a99271b5/) | [GitHub](https://github.com/Dianaaaf)) 
