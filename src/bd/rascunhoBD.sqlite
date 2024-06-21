@@ -1,0 +1,42 @@
+CREATE TABLE Livro (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    titulo TEXT NOT NULL,
+    preco REAL NOT NULL,
+    quantEstoque INTEGER NOT NULL
+);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Deuses Humanos', 36.90, 7);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Os sete maridos de Evelyn Hugo', 59.99, 20);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Assassinato no Expresso Oriente', 39.99, 50);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('O sol da meia-noite', 69.99, 10);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Vermelho, Branco e Sangue Azul', 48.97, 15);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Amêndoas', 32.90, 10);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ("Belo mundo, onde você está', 27.90, 7);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Suicidas', 41.00,36);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Malibu Renasce', 45.50, 50);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Corte de Chamas Prateadas', 68.90, 42);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Amor Teoricamente', 52.90, 41);
+INSERT INTO Livro (titulo, preco, quantEstoque) VALUES ('Herdeira do Fogo', 39.99, 13);
+
+
+CREATE TABLE Carrinho (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    livro_id INTEGER NOT NULL,
+    quantidade INTEGER NOT NULL,
+    FOREIGN KEY (livro_id) REFERENCES Livro(id)
+);
+INSERT INTO Carrinho (livro_id, quantidade) VALUES (1, 2);
+INSERT INTO Carrinho (livro_id, quantidade) VALUES (2, 1);
+INSERT INTO Carrinho (livro_id, quantidade) VALUES (3, 3);
+
+
+CREATE TABLE Usuario (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome TEXT NOT NULL UNIQUE,
+    senha TEXT NOT NULL
+);
+INSERT INTO Usuario (nome, senha) VALUES ('usuario1', 'senha1');
+INSERT INTO Usuario (nome, senha) VALUES ('teste', 'facil');
+
+
+
+
